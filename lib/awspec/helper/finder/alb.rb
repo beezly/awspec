@@ -43,6 +43,11 @@ module Awspec::Helper
         end
         selected
       end
+
+      def select_all_alb_tags(id)
+        res = elbv2_client.describe_tags({ resource_arns: [id] })
+        res.tag_descriptions.single_resource(id).tags
+      end
     end
   end
 end

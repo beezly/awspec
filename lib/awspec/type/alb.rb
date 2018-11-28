@@ -38,5 +38,12 @@ module Awspec::Type
       subnet2 = find_subnet(subnet_id)
       subnet2.subnet_id = subnet_id
     end
+
+    def has_tag?(tag_key, tag_value)
+      tag_set = select_all_alb_tags(resource_via_client.load_balancer_arn)
+      tag_set.find do |tag|
+        tag.key == tag_key && tag.value == tag_value
+      end
+    end
   end
 end

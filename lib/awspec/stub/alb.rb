@@ -81,6 +81,23 @@ Aws.config[:elasticloadbalancingv2] = {
           protocol: 'HTTP'
         }
       ]
+    },
+    describe_tags: {
+      tag_descriptions: [
+        {
+          resource_arn: 'arn:aws:elasticloadbalancing:ap-northeast-1:1234567890:loadbalancer/app/my-alb/1aa1bb1cc1ddee11',
+          tags: [
+            {
+              key: 'Name',
+              value: 'my-alb'
+            },
+            {
+              key: 'my-key',
+              value: 'my-value'
+            }
+          ]
+        }
+      ]
     }
   }
 }
